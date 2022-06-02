@@ -1,0 +1,15 @@
+{
+    'name': 'Dic',
+    'version': 'Version',
+    'summary': 'Summery',
+    'description': 'Description',
+    'category': 'Category',
+    'author': 'Luis Antonio Cruz Gutierrez',
+    'website': 'Website',
+    'depends': ['base'],
+    'data': ['views/menus.xml'],
+    'demo': [],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+}

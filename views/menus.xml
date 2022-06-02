@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="datos_general_action" model="ir.actions.act_window">
+            <field name="name">Recepcion De Requerimientos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">datos_generales</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="menu_padre" name="DIC" sequence="5"/>
+        <menuitem id="menu_actualizacion" name="Actualizacion" sequence="1" parent="menu_padre"/>
+        <menuitem id="datos_generales" name="Recepcion De Requerimientos" parent="menu_actualizacion" action="datos_general_action" sequence="1"/>
+
+
+    </data>
+</odoo>
