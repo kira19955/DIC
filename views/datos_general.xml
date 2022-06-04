@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="datos_generales_view_form" model="ir.ui.view">
+            <field name="name">datos_generales_view_form</field>
+            <field name="model">datos_generales</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                            <group>
+                                <field name="name"/>
+                                <field name="tipo_peticion"/>
+                            </group>
+
+                            <group>
+                                <field name="direccion"/>
+                                <field name="unidad"/>
+                            </group>
+                        </group>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h1 class="p-1 text-center">Solicitudes</h1>
+                        <field name="solitudes_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--FORMUALRIO DE LA SOLICITUD-->
+
+        <record id="solicitudes_view_form" model="ir.ui.view">
+            <field name="name">solicitudes_view_form</field>
+            <field name="model">solicitudes</field>
+            <field name="arch" type="xml">
+                <form string="solicitudes_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="id"/>
+                                <field name="equipo"/>
+                                <field name="serie"/>
+                            </group>
+                            <group>
+                                <field name="marca"/>
+                                <field name="modelo"/>
+                                <field name="inventario"/>
+                            </group>
+                        </group>
+                        <group>
+                                <field name="descripcion"/>
+                        </group>
+                        <group>
+                            <field name="situacion"/>
+                            <field name="responsable"/>
+                            <field name="ext"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="solicitud_view_tree" model="ir.ui.view">
+            <field name="name">solicitud_view_tree</field>
+            <field name="model">solicitudes</field>
+            <field name="arch" type="xml">
+                <tree string="solicitud_tree">
+                    <field name="id"/>
+                                <field name="equipo"/>
+                                <field name="serie"/>
+                     <field name="marca"/>
+                                <field name="modelo"/>
+                                <field name="inventario"/>
+                    <field name="descripcion"/>
+                    <field name="situacion"/>
+                            <field name="ext"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

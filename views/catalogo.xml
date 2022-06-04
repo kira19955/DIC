@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--CATALOGO DE TIPOS DE MANTENIMIENTO-->
+        <record id="tipo_de_mantenimiento_view_form" model="ir.ui.view">
+            <field name="name">tipo_de_mantenimiento_view_form</field>
+            <field name="model">tipo_de_mantenimiento</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--CATALOGO DE MANTENIMIENTO-->
+        <record id="mantenimiento_view_form" model="ir.ui.view">
+            <field name="name">mantenimiento_view_form</field>
+            <field name="model">mantenimiento</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="tipo"/>
+                            <field name="costo"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="mantenimiento_view_tree" model="ir.ui.view">
+            <field name="name">mantenimiento_view_tree</field>
+            <field name="model">mantenimiento</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="tipo"/>
+                    <field name="costo"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--TIPO DE EQUIPO-->
+        <record id="tipo_de_equipo_view_form" model="ir.ui.view">
+            <field name="name">mantenimiento_view_form</field>
+            <field name="model">tipo_de_equipo</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--SITUACION-->
+        <record id="situacion_view_form" model="ir.ui.view">
+            <field name="name">mantenimiento_view_form</field>
+            <field name="model">situacion</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Centros de servicios-->
+        <record id="centros_de_servicios__view_form" model="ir.ui.view">
+            <field name="name">Centros_de_servicios_view_form</field>
+            <field name="model">centro_de_servicios</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="direccion"/>
+                            <field name="tel"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="centro_de_servicios_view_tree" model="ir.ui.view">
+            <field name="name">centros_de_servicios_view_tree</field>
+            <field name="model">centro_de_servicios</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="direccion"/>
+                    <field name="tel"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

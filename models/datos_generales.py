@@ -27,22 +27,41 @@ class datosgenerales(models.Model):
     recibe = fields.Many2one('res.users','Recibe', default=lambda self: self.env.user, readonly=True)
 
     """
-    el campo se entra a ..... queda pendiente pues aun no se como elaborarlo
+    el campo se entrega a ..... queda pendiente pues aun no se como elaborarlo
     """
 
-class solicitudes(model.Model):
+    solitudes_ids = fields.One2many(
+        comodel_name='solicitudes',
+        inverse_name='solicitud_id',
+        string='Solitudes')
+
+class solicitudes(models.Model):
     _name = 'solicitudes'
 
     serie = fields.Char(string="Serie")
     marca = fields.Char(string="Marca")
     modelo = fields.Char(string="Modelo")
     inventario = fields.Char(string="Inventario")
-    descripcion = fields.Text(string="Inventario")
+    descripcion = fields.Text(string="Descripcion")
     ubicacion = fields.Char(string="Ubicacion")
     ext = fields.Char(string="Ext")
+    equipo = fields.Many2one(comodel_name="tipo_de_equipo")
+    situacion  =fields.Many2one(comodel_name="situacion")
+    tipo_solicitud = fields.Selection([('computo', 'Computo'),
+                                       ('telefonia', 'Telefonia'),
+                                       ('redes', 'Redes'),
+                                       ('sistemas', 'Sistemas'),
+                                       ('diseño', 'Diseño'),
+                                       ('prestamos', 'Prestamos'),
+                                       ('administracion', 'Administracion')],
+                                      string="Tipo de Solicitud")
+    solicitud_id = fields.Many2one(comodel_name="datos_generales")
+    responsable = fields.Many2one(comodel_name="res.users")
+
+
     """
     FALTAN LOS CAMPOS EQUIPO NO SE A CREADO EL MODELO AUN, SITUACION FALTA CREAR EL CAMPO,
-    RESPONSABLE QUE APUNTE A LSO USUARIOS DEL GRUPO DIC
+    RESPONSABLE QUE APUNTE A LOS USUARIOS DEL GRUPO DIC
     """
 
 
