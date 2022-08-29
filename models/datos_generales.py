@@ -15,7 +15,7 @@ class datosgenerales(models.Model):
     direccion = fields.Many2one(comodel_name="directorio_municipal.directorio_municipal",
                                 string="Direccion")
     unidad = fields.Many2one(comodel_name="directorio_municipal.directorio_municipal",
-                                string="Direccion")
+                                string="unidad")
 
 
 
@@ -34,6 +34,13 @@ class datosgenerales(models.Model):
         comodel_name='solicitudes',
         inverse_name='solicitud_id',
         string='Solitudes')
+    numero = fields.Char()
+
+    @api.onchange("direccion")
+    def _onchange_dominion_user_id(self):
+            return {"domain": {"unidad": [("nombre_area.id","=","depende_superior.id")]}}
+
+
 
 class solicitudes(models.Model):
     _name = 'solicitudes'
@@ -54,15 +61,21 @@ class solicitudes(models.Model):
                                        ('diseño', 'Diseño'),
                                        ('prestamos', 'Prestamos'),
                                        ('administracion', 'Administracion')],
-                                      string="Tipo de Solicitud")
+                                      string="Tipo de Solicitud", default="computo")
     solicitud_id = fields.Many2one(comodel_name="datos_generales")
     responsable = fields.Many2one(comodel_name="res.users")
+    fecha_evento_inicio = fields.Date(string="Fecha del Evento")
+    hora_evento = fields.Char(String="Hora Del evento")
+    hora_evento_entrega = fields.Char(String="Hora De Entrega")
 
 
     """
     FALTAN LOS CAMPOS EQUIPO NO SE A CREADO EL MODELO AUN, SITUACION FALTA CREAR EL CAMPO,
     RESPONSABLE QUE APUNTE A LOS USUARIOS DEL GRUPO DIC
     """
+
+class prueba(models.Model):
+    _inherit ="product.template"
 
 
 

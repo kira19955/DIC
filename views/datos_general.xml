@@ -10,13 +10,16 @@
                         <group>
 
                             <group>
+                                <field name="numero"/>
                                 <field name="name"/>
                                 <field name="tipo_peticion"/>
+                                <field name="recibe"/>
                             </group>
 
                             <group>
                                 <field name="direccion"/>
                                 <field name="unidad"/>
+                                <field name="fecha_hora"/>
                             </group>
                         </group>
                         <br/>
@@ -38,15 +41,18 @@
                 <form string="solicitudes_form">
                     <sheet>
                         <group>
+                            <field name="tipo_solicitud" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+                        <group>
                             <group>
                                 <field name="id"/>
-                                <field name="equipo"/>
-                                <field name="serie"/>
+                                <field name="equipo" attrs="{'invisible':[('tipo_solicitud','in',('sistemas','diseño','prestamos','administracion'))]}"/>
+                                <field name="serie" attrs="{'invisible':[('tipo_solicitud','in',('sistemas','diseño','prestamos','administracion'))]}"/>
                             </group>
                             <group>
-                                <field name="marca"/>
-                                <field name="modelo"/>
-                                <field name="inventario"/>
+                                <field name="marca" attrs="{'invisible':[('tipo_solicitud','in',('redes','sistemas','diseño','prestamos','administracion'))]}"/>
+                                <field name="modelo" attrs="{'invisible':[('tipo_solicitud','in',('redes','sistemas','diseño','prestamos','administracion'))]}"/>
+                                <field name="inventario" attrs="{'invisible':[('tipo_solicitud','in',('sistemas','diseño','prestamos','administracion'))]}"/>
                             </group>
                         </group>
                         <group>
@@ -54,6 +60,9 @@
                         </group>
                         <group>
                             <field name="situacion"/>
+                            <field name="fecha_evento_inicio" attrs="{'invisible':[('tipo_solicitud','not in','prestamos')]}"/>
+                            <field name="hora_evento" widget="float_time" attrs="{'invisible':[('tipo_solicitud','not in','prestamos')]}" />
+                            <field name="hora_evento_entrega" widget="float_time" attrs="{'invisible':[('tipo_solicitud','not in','prestamos')]}"/>
                             <field name="responsable"/>
                             <field name="ext"/>
                         </group>

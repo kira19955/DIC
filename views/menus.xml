@@ -48,6 +48,12 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record id="inventario_action" model="ir.actions.act_window">
+            <field name="name">Centro De Servicios</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">centro_de_servicios</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <!--USUARIOS-->
         <record id="usuarios_action" model="ir.actions.act_window">
@@ -71,6 +77,7 @@
         <menuitem id="catalogo_menu_3" name="Tipo De Equipo" parent="catalogo_menu" action="equipo_action" sequence="3"/>
         <menuitem id="catalogo_menu_4" name="Situacion" parent="catalogo_menu" action="situacion_action" sequence="4"/>
         <menuitem id="catalogo_menu_5" name="Centro De Servicio" parent="catalogo_menu" action="centro_de_servicios_action" sequence="5"/>
+        <menuitem id="catalogo_menu_6" name="inventario" parent="catalogo_menu" action="centro_de_servicios_action" sequence="6"/>
         <!--MENU CONSULTA-->
         <menuitem id="Reportes_menu" name="Reportes" sequence="4" parent="menu_padre"/>
 

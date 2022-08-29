@@ -6,7 +6,7 @@
     'category': 'Category',
     'author': 'Luis Antonio Cruz Gutierrez',
     'website': 'Website',
-    'depends': ['base'],
+    'depends': ['base','directorio_municipal','stock'],
     'data': ['views/datos_general.xml',
              'views/catalogo.xml',
              #'views/usuarios.xml',
